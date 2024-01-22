@@ -1,45 +1,44 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import { Container, Row, Col, Tab } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
+import imageProjectCalendar from "../assets/img/imageProjectCalendar.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import "animate.css";
+import TrackVisibility from "react-on-screen";
 
 export const Projects = () => {
-
   const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
+      id: 1,
+      title: "Project Booking and Seller Hotel (Booking)",
+      description:
+        "WORK AS FULL-STACK DEVELOPER USING FIGMA HTML CSS JAVASCRIPT REACT.JS TAILWIN EXPRESS.JS SEQUELIZE.JS MYSQL POSTMAN LINENOTIFY 2023",
+      link1: "https://github.com/Thanapon13/ProjectBooking-frontEnd",
+      link2: "https://github.com/Thanapon13/ProjectBooking-Api-backEnd"
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
+      id: 2,
+      title: "BID BUY BYE GROUP (Clone Sasom) PROJECT FOR CODECAMP#13",
+      description:
+        "WORK AS FULL-STACK DEVELOPER USING FIGMA HTML CSS JAVASCRIPT REACT.JS TAILWIN EXPRESS.JS SEQUELIZE.JS MYSQL POSTMAN  OMISE-API LINENOTIFY 2023",
+      link1: "https://github.com/markeykung009/bidbuybye-web",
+      link2: "https://github.com/markeykung009/bidbuybye-api"
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      id: 3,
+      title: "Project G-Art",
+      description:
+        "WORK AS FULL-STACK DEVELOPER USING FIGMA HTML CSS JAVASCRIPT REACT.JS EXPRESS.JS SEQUELIZE.JS MYSQL POSTMAN TAILWEINDFLOWBITE 2023",
+      link1: "https://github.com/Thanapon13/ProjectGart-frontend.git",
+      link2: "https://github.com/Thanapon13/ProjectGart-backend"
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
+      id: 4,
+      title: "Project Frontend Calendar Add CRUD",
+      description: null,
+      link1: "https://github.com/Thanapon13/testFrontendForviz.git",
+      link2: null,
+      imgUrl: imageProjectCalendar
+    }
   ];
 
   return (
@@ -48,51 +47,94 @@ export const Projects = () => {
         <Row>
           <Col size={12}>
             <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="section">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
+              {({ isVisible }) => (
+                <div
+                  className={
+                    isVisible ? "animate__animated animate__fadeIn" : ""
+                  }
+                >
+                  <h2>Projects : {projects.length}</h2>
+
+                  <div className="w-full">
+                    <div className="w-full flex flex-col gap-5 justify-center ml-4">
+                      {projects?.map((el, idx) => (
+                        <div
+                          key={idx}
+                          data-aos="fade-right"
+                          data-aos-offset="300"
+                          data-aos-easing="ease-in-sine"
+                        >
+                          <div>
+                            <h1 className="text-lg font-bold">
+                              {el?.id}.{el?.title}
+                            </h1>
+                          </div>
+
+                          <div>
+                            <ul
+                              className={` ${
+                                el?.description ? "list-disc" : "list-none"
+                              }`}
+                            >
+                              <li>{el?.description}</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <ul className="list-disc">
+                              <li className="hover:underline">
+                                <a className="text-white" href={el?.link1}>
+                                  {el?.link1}
+                                </a>
+                              </li>
+
+                              {el?.link2 && (
+                                <li className="hover:underline">
+                                  <a className="text-white" href={el?.link2}>
+                                    {el?.link2}
+                                  </a>
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+
+                          {el?.title ===
+                            "Project Frontend Calendar Add CRUD" && (
+                            <Tab.Container
+                              id="projects-tabs"
+                              defaultActiveKey="first"
+                            >
+                              <Tab.Content
+                                id="slideInUp"
+                                className={
+                                  isVisible
+                                    ? "animate__animated animate__slideInUp"
+                                    : ""
+                                }
+                              >
+                                <Tab.Pane eventKey="first">
+                                  <Row>
+                                    {projects.map((project, index) => {
+                                      return (
+                                        <ProjectCard key={index} {...project} />
+                                      );
+                                    })}
+                                  </Row>
+                                </Tab.Pane>
+                              </Tab.Content>
+                            </Tab.Container>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
       <img className="background-image-right" src={colorSharp2}></img>
     </section>
-  )
-}
+  );
+};
