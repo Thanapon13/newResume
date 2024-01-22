@@ -1,5 +1,3 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/profile.png";
@@ -52,10 +50,6 @@ export const Banner = () => {
       setIndex(prevIndex => prevIndex + 1);
     }
   };
-
-  useEffect(() => {
-    AOS.init({ duration: "1000" });
-  }, []);
 
   return (
     <section className="banner" id="home">

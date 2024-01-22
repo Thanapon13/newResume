@@ -1,3 +1,5 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import colorSharp from "../assets/img/color-sharp.png";
@@ -7,7 +9,7 @@ import { DiMysql, DiPhotoshop, DiIllustrator } from "react-icons/di";
 import { SiPostman, SiTailwindcss } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaNode, FaFigma, FaBootstrap, FaReact } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Skills = () => {
   const [viewAll, setViewAll] = useState("");
@@ -89,6 +91,9 @@ export const Skills = () => {
     }
   ];
 
+  useEffect(() => {
+    AOS.init({ duration: "1500" });
+  }, []);
   return (
     <section className="skill" id="skills">
       <div className="container">
