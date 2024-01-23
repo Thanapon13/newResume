@@ -104,7 +104,6 @@ export const Skills = () => {
 
               <div className="flex justify-end items-center ">
                 <button
-                  // onClick={() => setViewAll("viewAll")}
                   onClick={() =>
                     setViewAll(prev => (prev === "viewAll" ? "" : "viewAll"))
                   }

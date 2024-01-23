@@ -38,6 +38,14 @@ export const Projects = () => {
       link1: "https://github.com/Thanapon13/testFrontendForviz.git",
       link2: null,
       imgUrl: imageProjectCalendar
+    },
+    {
+      id: 5,
+      title: "Project AssetManagement",
+      description: "This project was done during a 3 month trial period.",
+      link1: "https://github.com/Thanapon13/assetManagement-Frontend",
+      link2: "https://github.com/Thanapon13/assetManagement-Backend",
+      imgUrl: null
     }
   ];
 
